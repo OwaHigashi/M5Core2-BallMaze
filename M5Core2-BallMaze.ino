@@ -1,14 +1,13 @@
-#include <M5Core2.h>              // M5STACK
+//#include <M5Core2.h>              // M5STACK
 
+#include <M5Unified.h>
 // for SD-Updater
 #define SDU_ENABLE_GZ
+
 #include <M5StackUpdater.h>
 
-#define LGFX_M5STACK_CORE2
-#define LGFX_USE_V1
-#include <LovyanGFX.hpp>
-#include <LGFX_AUTODETECT.hpp>
-LGFX lcd;
+
+M5GFX lcd;
 LGFX_Sprite sp(&lcd);
 
 #if defined( LGFX_M5STACK ) || defined( ARDUINO_M5Stack_Core_ESP32 ) || defined( ARDUINO_M5STACK_FIRE ) // M5Stack
@@ -20,7 +19,7 @@ LGFX_Sprite sp(&lcd);
  static constexpr float zoom_min = 2;
  static constexpr float zoom_max = 32;
 
-#elif defined( LGFX_M5STACK_CORE2 ) || defined( ARDUINO_M5STACK_Core2 )
+#elif defined( ARDUINO_M5STACK_CORE2 )
 
  #define BUTTON_A_PIN -1
  #define BUTTON_B_PIN -1
